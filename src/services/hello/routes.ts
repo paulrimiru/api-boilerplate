@@ -11,6 +11,7 @@ export default [
     path: `${BASE_URL}/`,
     method: "get",
     handler: async (req: Request, res: Response) => {
+      console.log(res.send)
       res.send("Hello world!");
     }
   }

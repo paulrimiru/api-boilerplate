@@ -18,6 +18,9 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "500": {
+            "description": "internal server error"
           }
         },
         "content": {
