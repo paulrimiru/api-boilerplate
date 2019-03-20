@@ -1,0 +1,52 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "await-promise": [true],
+    "interface-name": [true, "never-prefix"],
+    "max-classes-per-file": false,
+    "max-func-body-length": [true, 60, { "ignore-parameters-to-function-regex": "^(describe|context|only)$", "ignore-comments": true }],
+    "no-consecutive-blank-lines": [true, 2],
+    "no-empty": [true, "allow-empty-catch"],
+    "no-empty-interface": [false],
+    "no-invalid-template-strings": [true],
+    "no-floating-promises": [true],
+    "no-unused-variable": {
+      "options": {
+        "check-parameters": false,
+        "ignore-pattern": "^_"
+      }
+    },
+    "no-console": true,
+    "object-literal-sort-keys": [false],
+    "quotemark": [true, "single"]
+  },
+  "rulesDirectory": ["node_modules/tslint-microsoft-contrib"],
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
+    "experimentalDecorators": true
+  },
+  "include": [
+      "src/**/*",
+      "**/*.d.ts"
+  ],
+  "exclude": [
+      "node_modules",
+      "**/*.test.ts",
+      "dist"
+  ]
+}
