@@ -11,5 +11,5 @@ export default [
   handleBodyRequestParsing,
   handleCompression,
   handleAPIDocs,
-  redisMiddleware,
+  // redisMiddleware,
 ];

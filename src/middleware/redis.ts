@@ -2,6 +2,7 @@ import redis from 'redis';
 import { Request, Response, NextFunction, Router } from "express";
 
 const client = redis.createClient();
+
 const handler = (req: Request, res: Response, next: NextFunction) => {
   if (req.method.toLowerCase() === 'get') {
     let key = "__expIress__" + req.originalUrl || req.url;
@@ -10,15 +11,12 @@ const handler = (req: Request, res: Response, next: NextFunction) => {
       if(data){
         res.send(data);
       }else{
-        Object.assign(res, {
-          sendResponse: res.send
-        });
-
         const updateRes = {
           send: (body: any) => {
-            res.sendResponse(body)
+            res.send(body);
+
             client.set(key, JSON.stringify(body));
-            client.setex(key, 300, body)
+            client.setex(key, 300, body);
           }
         }
 

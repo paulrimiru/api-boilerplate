@@ -1,10 +1,12 @@
 import http from "http";
 import express from "express";
+import dotenv from "dotenv";
+
 import { applyMiddleware, applyRoutes } from "./utils";
 import middleware from "./middleware";
 import errorHandlers from "./middleware/errorHandlers";
-import routes from "./services";
-import dotenv from "dotenv";
+import routes from "./modules";
+import initDB from "./models";
 
 dotenv.config();
 
@@ -17,6 +19,8 @@ process.on("unhandledRejection", e => {
   console.log(e);
   process.exit(1);
 });
+
+initDB();
 
 const router = express();
 applyMiddleware(middleware, router);
