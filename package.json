@@ -6,8 +6,13 @@
   "scripts": {
     "postinstall": "npx tsc",
     "start": "npx pm2 start pm2.yaml",
-    "start:dev": "tsc-watch --onSuccess \"node ./dist/src/server.js\"",
-    "test": "jest --coverage --verbose"
+    "start:dev": "tsc-watch --onSuccess \"node ./dist/src/server.js\" --compiler typescript/bin/tsc",
+    "test": "jest",
+    "test:dev": "yarn test --watch",
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "tslint --project . --fix",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -24,9 +29,8 @@
     "jest": "^24.5.0",
     "ts-jest": "^24.0.0",
     "tsc-watch": "^2.1.2",
-    "typescript": "^3.3.3333"
-  },
-  "dependencies": {
+    "typescript": "^3.3.3333",
+    "coveralls": "^3.0.2",
     "@types/compression": "^0.0.36",
     "@types/cors": "^2.8.4",
     "@types/dotenv": "^6.1.0",
@@ -35,6 +39,12 @@
     "@types/redis": "^2.8.11",
     "@types/supertest": "^2.0.7",
     "@types/swagger-ui-express": "^3.0.0",
+    "supertest": "^4.0.0",
+    "swagger-ui-express": "^4.0.2",
+    "tslint": "^5.14.0",
+    "tslint-microsoft-contrib": "^6.1.0"
+  },
+  "dependencies": {
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
@@ -45,11 +55,7 @@
     "redis": "^2.8.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "4",
-    "sequelize-typescript": "^0.6.8",
-    "supertest": "^4.0.0",
-    "swagger-ui-express": "^4.0.2",
-    "tslint": "^5.14.0",
-    "tslint-microsoft-contrib": "^6.1.0"
+    "sequelize-typescript": "^0.6.8"
   },
   "jest": {
     "verbose": true,

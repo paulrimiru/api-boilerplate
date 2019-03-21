@@ -1,20 +1,20 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt, DataType } from 'sequelize-typescript';
+import { Column, CreatedAt, DataType, Model, Table, UpdatedAt } from 'sequelize-typescript';
 
 @Table
 export default class User extends Model<User> {
   @Column({
     defaultValue: DataType.UUIDV4,
     primaryKey: true,
-    type: DataType.UUID
+    type: DataType.UUID,
   })
-  id!: string;
+  public id!: string;
 
   @Column
-  name!: string;
-  
+  public name!: string;
+
   @CreatedAt
-  creationDate!: Date;
+  public creationDate!: Date;
 
   @UpdatedAt
-  updatedOn!: Date;
+  public updatedOn!: Date;
 }
