@@ -2,7 +2,7 @@ defaults: &defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:8.0
-    - image: circleci/mongo:latest
+    - image: circleci/postgres:9.4
 
 whitelist: &whitelist
   paths:

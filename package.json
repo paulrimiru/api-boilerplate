@@ -4,8 +4,9 @@
   "description": "small api for a school management system",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npx tsc",
-    "start": "npx pm2 start pm2.yaml",
+    "postinstall": "tsc",
+    "start": "pm2 start pm2.yaml",
+    "stop": "pm2 stop pm2.yaml",
     "start:dev": "tsc-watch --onSuccess \"node ./dist/src/server.js\" --compiler typescript/bin/tsc",
     "test": "jest",
     "test:dev": "yarn test --watch",
