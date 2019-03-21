@@ -1,10 +1,9 @@
+import { handleAPIDocs } from './apiDocs';
 import {
-  handleCors,
   handleBodyRequestParsing,
   handleCompression,
-} from "./common";
-import { handleAPIDocs } from "./apiDocs";
-import { redisMiddleware } from './redis';
+  handleCors,
+} from './common';
 
 export default [
   handleCors,

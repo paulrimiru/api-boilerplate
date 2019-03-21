@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
-
-import { ResponseBody, ResponseStatus } from 'src/modules/interfaces';
+import { ResponseBody, ResponseStatus } from '../interfaces';
 
 dotenv.config();
 
@@ -12,8 +11,14 @@ export default [
     path: `${BASE_URL}/`,
     method: 'get',
     handler: async (req: Request, res: Response) => {
-      console.log(res.send);
-      res.send('hello world');
+      const response: ResponseBody = {
+        status: ResponseStatus.success,
+        data: {
+          message: 'hello you',
+        },
+      };
+
+      res.send(response);
     },
   },
 ];

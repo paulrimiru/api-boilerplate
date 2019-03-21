@@ -1,7 +1,7 @@
-import { Router } from "express";
-import cors from "cors";
-import parser from "body-parser";
-import compression from "compression";
+import parser from 'body-parser';
+import compression from 'compression';
+import cors from 'cors';
+import { Router } from 'express';
 
 export const handleCors = (router: Router) =>
   router.use(cors({ credentials: true, origin: true }));
