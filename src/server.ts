@@ -7,29 +7,35 @@ import errorHandlers from './middleware/errorHandlers';
 import initDB from './models';
 import routes from './modules';
 import { applyMiddleware, applyRoutes } from './utils';
+import * as log from './utils/Logs';
 
 dotenv.config();
 
 process.on('uncaughtException', (e) => {
-  console.log(e);
+  log.error('uncaughtException', e);
   process.exit(1);
 });
 
 process.on('unhandledRejection', (e) => {
-  console.log(e);
+  log.error('unhandledRejection', e);
   process.exit(1);
 });
 
-initDB();
+initDB()
+  .then(() => {
+    log.info('database sync complete');
+    const app = express();
 
-const router = express();
-applyMiddleware(middleware, router);
-applyRoutes(routes, router);
-applyMiddleware(errorHandlers, router);
+    applyMiddleware(middleware, app);
+    applyRoutes(routes, app);
+    applyMiddleware(errorHandlers, app);
 
-const { PORT } = process.env;
-const server = http.createServer(router);
+    const { PORT } = process.env;
+    const server = http.createServer(app);
 
-server.listen(PORT, () =>
-  console.log(`Server is running http://localhost:${PORT}/api-docs`),
-);
+    server.listen(PORT, () =>
+      log.info(`Server is running http://localhost:${PORT}/api-docs`),
+    );
+  })
+  .catch(() => log.info('database sync failed'));
+

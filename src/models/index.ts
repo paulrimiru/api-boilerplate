@@ -19,10 +19,10 @@ const initDB = () => {
 
   sequelize.addModels([User]);
 
-  sequelize.sync({ force: true })
-    .then(() => console.log('database syncd'))
-    .catch(() => console.log('database sync failed'));
-
+  return sequelize.sync({
+    force: true,
+    logging: false,
+  });
 };
 
 export default initDB;
