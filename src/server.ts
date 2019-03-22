@@ -21,10 +21,11 @@ process.on('unhandledRejection', (e) => {
   process.exit(1);
 });
 
+const app = express();
+
 initDB()
   .then(() => {
     log.info('database sync complete');
-    const app = express();
 
     applyMiddleware(middleware, app);
     applyRoutes(routes, app);
@@ -37,5 +38,5 @@ initDB()
       log.info(`Server is running http://localhost:${PORT}/api-docs`),
     );
   })
-  .catch(() => log.info('database sync failed'));
+  .catch((e) => log.error('database sync failed', e));
 
