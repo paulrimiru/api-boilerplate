@@ -17,11 +17,11 @@ The scope of this project is to create an api boilerplate that will include all 
 
 There is alot more to be done in order to make this boilerplate as helpful as possible
 
-###TODO
+### TODO
 
 - [ ] Add mongo-db integration
 - [ ] Optimise code for efficiency and speed
 
-####Authors
+#### Authors
 
 [Paul Rimiru](https://github.com/PaulKariukiRimiru)
