@@ -7,7 +7,7 @@ const handler = (req: Request, res: Response, next: NextFunction) => {
   if (req.method.toLowerCase() === 'get') {
     const key = '__expIress__' + req.originalUrl || req.url;
 
-    client.get(key, function(err, data) {
+    client.get(key, (err, data) => {
       if (data) {
         res.send(data);
       } else {

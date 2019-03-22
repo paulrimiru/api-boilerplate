@@ -12,7 +12,7 @@
     "test": "mocha --require tsconfig-paths/register --require ts-node/register \"./src/**/*.spec.ts\" --watch-extensions ts --exit",
     "test:dev": "yarn test --watch",
     "test:coverage": "nyc --reporter=text mocha --require tsconfig-paths/register --require ts-node/register \"./src/**/*.spec.ts\" --watch-extensions ts --exit",
-    "coveralls": "yarn test:coverage | coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "tslint --project . --fix",
     "build": "tsc"
   },
@@ -41,6 +41,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "mocha": "^6.0.2",
+    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.18.10",
     "sinon": "^7.3.0",
     "supertest": "^4.0.0",
