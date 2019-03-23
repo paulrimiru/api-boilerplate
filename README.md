@@ -9,7 +9,7 @@ The scope of this project is to create an api boilerplate that will include all 
 
 - [x] Node + Typescript integration
 - [x] Express integration
-- [x] Postgres integration with sequelize
+- [x] MongoDB integration with mongoose
 - [x] Redis for request cache
 - [x] Circle ci integration with a build workflow
 - [x] Request fail safe and validation middleware
