@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { Request, Response } from 'express';
-import { ResponseBody, ResponseStatus } from '../interfaces';
+
+import { getHello, postHello } from './handers/hello-world';
 
 dotenv.config();
 
@@ -10,15 +10,11 @@ export default [
   {
     path: `${BASE_URL}/`,
     method: 'get',
-    handler: async (req: Request, res: Response) => {
-      const response: ResponseBody = {
-        status: ResponseStatus.success,
-        data: {
-          message: 'hello you',
-        },
-      };
-
-      res.send(response);
-    },
+    handler: getHello,
+  },
+  {
+    path: `${BASE_URL}/`,
+    method: 'post',
+    handler: postHello,
   },
 ];

@@ -17,7 +17,6 @@ whitelist: &whitelist
     - README.md
     - tsconfig.json
     - tslint.json
-    - pre-dev-start.js
 version: 2
 jobs:
   checkout:

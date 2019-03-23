@@ -28,4 +28,6 @@ export const applyRoutes = (routes: Route[], router: Router) => {
     const { method, path, handler } = route;
     (router as any)[method](path, handler);
   }
+
+  return router;
 };

@@ -1,4 +1,4 @@
-import { handleAPIDocs } from './apiDocs';
+import { handleAPIDocs } from './api-docs';
 import {
   handleBodyRequestParsing,
   handleCompression,
