@@ -2,7 +2,7 @@ defaults: &defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:8.0
-    - image: circleci/postgres:9.4
+    - image: circleci/mongo:latest
 
 whitelist: &whitelist
   paths:
@@ -17,7 +17,6 @@ whitelist: &whitelist
     - README.md
     - tsconfig.json
     - tslint.json
-    - pre-dev-start.js
 version: 2
 jobs:
   checkout:

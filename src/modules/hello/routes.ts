@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import { getHello } from './handers/hello-world';
+import { getHello, postHello } from './handers/hello-world';
 
 dotenv.config();
 
@@ -11,5 +11,10 @@ export default [
     path: `${BASE_URL}/`,
     method: 'get',
     handler: getHello,
+  },
+  {
+    path: `${BASE_URL}/`,
+    method: 'post',
+    handler: postHello,
   },
 ];

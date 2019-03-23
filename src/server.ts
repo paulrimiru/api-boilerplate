@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import http, { Server } from 'http';
+import mongoose from 'mongoose';
 
 import middleware from './middleware';
 import errorHandlers from './middleware/error-handler';
@@ -46,6 +47,13 @@ export const initServer = () => {
   };
 };
 
+export const mongoSetup = async () => {
+  await mongoose.connect(process.env.MONGO_URL!, { useNewUrlParser: true });
+};
 
-initServer();
-
+mongoSetup()
+  .then(() => {
+    log.info('Database connected');
+    initServer();
+  })
+  .catch((err) => log.error('Failed with error', err));
