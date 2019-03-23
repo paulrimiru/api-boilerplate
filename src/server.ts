@@ -1,10 +1,9 @@
 import dotenv from 'dotenv';
-import express from 'express';
-import http from 'http';
+import express, { Express } from 'express';
+import http, { Server } from 'http';
 
 import middleware from './middleware';
 import errorHandlers from './middleware/errorHandlers';
-import initDB from './models';
 import routes from './modules';
 import { applyMiddleware, applyRoutes } from './utils';
 import * as log from './utils/Logs';
@@ -21,22 +20,32 @@ process.on('unhandledRejection', (e) => {
   process.exit(1);
 });
 
-const app = express();
+let app: Express;
+let server: Server;
 
-initDB()
-  .then(() => {
-    log.info('database sync complete');
+export const initServer = () => {
+  app = express();
 
-    applyMiddleware(middleware, app);
-    applyRoutes(routes, app);
-    applyMiddleware(errorHandlers, app);
+  applyMiddleware(middleware, app);
+  applyRoutes(routes, app);
+  applyMiddleware(errorHandlers, app);
 
-    const { PORT } = process.env;
-    const server = http.createServer(app);
+  const { PORT } = process.env;
+
+  if (!server) {
+    server = http.createServer(app);
 
     server.listen(PORT, () =>
       log.info(`Server is running http://localhost:${PORT}/api-docs`),
     );
-  })
-  .catch((e) => log.error('database sync failed', e));
+  }
+
+  return {
+    app,
+    server,
+  };
+};
+
+
+initServer();
 

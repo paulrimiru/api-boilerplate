@@ -1,6 +1,5 @@
-import searchRoutes from './hello/routes';
-import userRoutes from './users/routes';
+import helloRoutes from './hello/routes';
 
-const routes = [searchRoutes, userRoutes];
+const routes = [helloRoutes];
 
 export default routes.reduce((allRoutes, moduleRoutes) => allRoutes.concat(moduleRoutes));

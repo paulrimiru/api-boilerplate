@@ -1,6 +1,4 @@
 import dotenv from 'dotenv';
-import { Request, Response } from 'express';
-
 
 import { getHello } from './handers/hello-world';
 
