@@ -3,10 +3,10 @@ import express, { Express } from 'express';
 import http, { Server } from 'http';
 
 import middleware from './middleware';
-import errorHandlers from './middleware/errorHandlers';
+import errorHandlers from './middleware/error-handler';
 import routes from './modules';
 import { applyMiddleware, applyRoutes } from './utils';
-import * as log from './utils/Logs';
+import * as log from './utils/logs';
 
 dotenv.config();
 

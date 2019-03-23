@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express';
 
-import * as log from 'src/utils/Logs';
+import * as log from 'src/utils/logs';
 
 
 export interface HttpError extends Error {
