@@ -13,7 +13,9 @@
     "test:dev": "yarn test --watch",
     "coveralls": "NODE_ENV=test jest --coverage --coverageReporters=text-lcov | coveralls",
     "lint": "tslint --project . --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -60,9 +62,11 @@
     "pm2": "^3.4.0",
     "redis": "^2.8.0",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "4.44.3",
+    "sequelize": "5.8.11",
     "sequelize-typescript": "^0.6.8",
     "ts-node-dev": "^1.0.0-pre.32",
-    "tsconfig-paths": "^3.8.0"
-  }
+    "tsconfig-paths": "^3.8.0",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
