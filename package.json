@@ -64,7 +64,7 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "5.8.11",
     "sequelize-typescript": "^0.6.8",
-    "ts-node-dev": "^1.0.0-pre.32",
+    "ts-node-dev": "^1.0.0",
     "tsconfig-paths": "^3.8.0",
     "snyk": "^1.189.0"
   },
