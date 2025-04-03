@@ -55,7 +55,7 @@
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
-    "express": "5.0.0-alpha.7",
+    "express": "5.1.0",
     "nyc": "^13.3.0",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
